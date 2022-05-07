@@ -142,4 +142,17 @@ public class TimeUtils {
 
     }
 
+    /**
+     * 将毫秒转为时间
+     *
+     * @param timestamp 毫秒为单位的时间戳
+     * @return 时间对象
+     */
+    public static LocalDateTime getDateTimeOfMilliTimestamp(long timestamp) {
+        Instant instant = Instant.ofEpochMilli(timestamp);
+        ZoneId zone = ZoneId.systemDefault();
+        return LocalDateTime.ofInstant(instant, zone);
+
+    }
+
 }
