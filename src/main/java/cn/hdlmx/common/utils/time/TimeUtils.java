@@ -66,6 +66,30 @@ public class TimeUtils {
         return day + "天" + hours + "小时" + minutes + "分" + seconds + "秒";
     }
 
+    public static String timeDurationStr(LocalDateTime beginTime, LocalDateTime endTime) {
+        Duration duration = Duration.between(beginTime, endTime);
+        long secondsOfTime = Math.abs(duration.getSeconds());
+        long day = 0L;
+        long minutes = 0L;
+        long hours = 0L;
+        long seconds = 0L;
+        if (secondsOfTime >= SECONDS_OF_DAY) {
+            day = secondsOfTime / SECONDS_OF_DAY;
+            secondsOfTime = secondsOfTime % SECONDS_OF_DAY;
+        }
+        if (secondsOfTime >= SECONDS_OF_HOUR) {
+            hours = secondsOfTime / SECONDS_OF_HOUR;
+            secondsOfTime = secondsOfTime % SECONDS_OF_HOUR;
+        }
+        if (secondsOfTime >= SECONDS_OF_MINUTE) {
+            minutes = secondsOfTime / SECONDS_OF_MINUTE;
+            secondsOfTime = secondsOfTime % SECONDS_OF_MINUTE;
+        }
+        seconds = secondsOfTime;
+        return day + "天" + hours + "小时" + minutes + "分" + seconds + "秒";
+    }
+
+
     /**
      * 日期格式化
      *
