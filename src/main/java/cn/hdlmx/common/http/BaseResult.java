@@ -6,8 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author hdlmx
+ */
 @ApiModel("基础Response")
-
 public class BaseResult<T> {
     @ApiModelProperty("消息")
     private String msg = "success";
@@ -27,9 +29,6 @@ public class BaseResult<T> {
         this.data = data;
     }
 
-    public BaseResult<T> build() {
-        return this;
-    }
 
     public String getMsg() {
         return msg;
@@ -51,16 +50,8 @@ public class BaseResult<T> {
         return data;
     }
 
-    public void setData(T data) {
+    public BaseResult<T> setData(T data) {
         this.data = data;
-    }
-
-    @Override
-    public String toString() {
-        return "BaseResult{" +
-                "msg='" + msg + '\'' +
-                ", code=" + code +
-                ", data=" + data +
-                '}';
+        return this;
     }
 }

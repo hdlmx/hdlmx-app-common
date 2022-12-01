@@ -19,7 +19,7 @@ public enum ResponseStatusEnum {
     /**
      * 未认证
      */
-    UNAUTHORIZED(403, "unauthorized");
+    UNAUTHORIZE(403, "unauthorized");
     /**
      * http状态码
      */
