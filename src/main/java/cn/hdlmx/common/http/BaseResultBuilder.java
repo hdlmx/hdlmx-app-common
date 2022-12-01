@@ -14,7 +14,7 @@ public class BaseResultBuilder<T> {
      *             成功的请求
      */
     public static <T> BaseResult<T> success(T data) {
-        return new BaseResult<>(ResponseStatusEnum.SUCCESS.getCode(), ResponseStatusEnum.SUCCESS.getMsg());
+        return new BaseResult<>(ResponseStatusEnum.SUCCESS.getCode(), ResponseStatusEnum.SUCCESS.getMsg(),data);
     }
 
     /**
@@ -24,7 +24,7 @@ public class BaseResultBuilder<T> {
      * @return response result
      */
     public static <T> BaseResult<T> failed(T data) {
-        return new BaseResult<>(ResponseStatusEnum.ERROR.getCode(), ResponseStatusEnum.ERROR.getMsg());
+        return new BaseResult<>(ResponseStatusEnum.ERROR.getCode(), ResponseStatusEnum.ERROR.getMsg(),data);
     }
 
 
