@@ -61,7 +61,7 @@ public class BaseResultBuilder<T> {
      * @return response result
      */
     public static <T> BaseResult<T> unauthorized() {
-        return new BaseResult<>(ResponseStatusEnum.UNAUTHORIZE.getCode(), ResponseStatusEnum.UNAUTHORIZE.getMsg());
+        return new BaseResult<>(ResponseStatusEnum.UNAUTHORIZED.getCode(), ResponseStatusEnum.UNAUTHORIZED.getMsg());
     }
 
     /**

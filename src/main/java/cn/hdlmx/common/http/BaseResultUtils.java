@@ -39,7 +39,7 @@ public class BaseResultUtils<T> {
      * @return response result
      */
     public static <T> BaseResult<T> unauthorized(T data) {
-        return new BaseResult<>(ResponseStatusEnum.UNAUTHORIZE.getCode(), ResponseStatusEnum.UNAUTHORIZE.getMsg(), data);
+        return new BaseResult<>(ResponseStatusEnum.UNAUTHORIZED.getCode(), ResponseStatusEnum.UNAUTHORIZED.getMsg(), data);
     }
 
     /**
