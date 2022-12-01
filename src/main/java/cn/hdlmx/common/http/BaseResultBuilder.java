@@ -14,38 +14,54 @@ public class BaseResultBuilder<T> {
      *             成功的请求
      */
     public static <T> BaseResult<T> success(T data) {
-        return new BaseResult<>(ResponseStatusEnum.SUCCESS.getCode(), ResponseStatusEnum.SUCCESS.getMsg(),data);
+        return new BaseResult<>(ResponseStatusEnum.SUCCESS.getCode(), ResponseStatusEnum.SUCCESS.getMsg(), data);
     }
 
     /**
-     * 失败的请求
+     * 自定义失败的请求返回消息
      *
-     * @param data response body
+     * @param msg response body
      * @return response result
      */
-    public static <T> BaseResult<T> failed(T data) {
-        return new BaseResult<>(ResponseStatusEnum.ERROR.getCode(), ResponseStatusEnum.ERROR.getMsg(),data);
+    public static <T> BaseResult<T> failed(String msg) {
+        return new BaseResult<>(ResponseStatusEnum.ERROR.getCode(), msg);
+    }
+
+    /**
+     * 系统默认失败的请求返回消息
+     *
+     * @return response result
+     */
+    public static BaseResult<String> failed() {
+        return new BaseResult<>(ResponseStatusEnum.ERROR.getCode(), ResponseStatusEnum.ERROR.getMsg());
     }
 
 
     /**
      * 接口不存在
      *
-     * @param data response body
      * @return response result
      */
-    public static <T> BaseResult<T> notFound(T data) {
-        return new BaseResult<>(ResponseStatusEnum.NOT_FOUND.getCode(), ResponseStatusEnum.NOT_FOUND.getMsg(), data);
+    public static <T> BaseResult<T> notFound(String msg) {
+        return new BaseResult<>(ResponseStatusEnum.NOT_FOUND.getCode(), msg);
+    }
+
+    /**
+     * 系统默认接口不存在返回消息
+     *
+     * @return response result
+     */
+    public static BaseResult notFound() {
+        return new BaseResult<>(ResponseStatusEnum.NOT_FOUND.getCode(), ResponseStatusEnum.NOT_FOUND.getMsg());
     }
 
     /**
      * 接口未认证
      *
-     * @param data response body
      * @return response result
      */
-    public static <T> BaseResult<T> unauthorized(T data) {
-        return new BaseResult<>(ResponseStatusEnum.UNAUTHORIZE.getCode(), ResponseStatusEnum.UNAUTHORIZE.getMsg(), data);
+    public static <T> BaseResult<T> unauthorized() {
+        return new BaseResult<>(ResponseStatusEnum.UNAUTHORIZE.getCode(), ResponseStatusEnum.UNAUTHORIZE.getMsg());
     }
 
     /**
