@@ -2,15 +2,12 @@ package cn.hdlmx.common.http;
 
 import io.swagger.annotations.ApiModel;
 import io.swagger.annotations.ApiModelProperty;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
 
 /**
  * @author hdlmx
  */
 @ApiModel("基础Response")
-public class BaseResult<T> {
+public class BaseResult<T>  {
     @ApiModelProperty("消息")
     private String msg = "success";
     @ApiModelProperty("http response code")
