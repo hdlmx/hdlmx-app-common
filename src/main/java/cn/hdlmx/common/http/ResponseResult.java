@@ -51,7 +51,7 @@ public class ResponseResult<T> {
     }
 
     public static <T> ResponseResult<T> OK(T t) {
-        return new ResponseResult<>("success", BizCode.SUCCESS, t);
+        return new ResponseResult<>("success", BizCode.QUERY_SUCCESS, t);
     }
 
     public static <T> ResponseResult<T> OK(String msg, BizCode bizCode, T data) {
