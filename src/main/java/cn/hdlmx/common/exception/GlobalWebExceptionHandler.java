@@ -20,37 +20,37 @@ import java.util.Optional;
  *
  * @author 503330348
  */
-@RestControllerAdvice
+@RestControllerAdvice(basePackages = {"cn.hdlmx"})
 
 @Slf4j
 public class GlobalWebExceptionHandler {
     @ResponseStatus(HttpStatus.FORBIDDEN)
     @ExceptionHandler(value = AccessDeniedException.class)
     public ResponseResult<String> handler(AccessDeniedException e) {
-        log.info("403错误", e);
+        log.info("http 403错误", e);
         return ResponseResult.FAILED(BizCode.FORBIDDEN);
     }
 
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
     public ResponseResult<String> handler(MethodArgumentNotValidException e) {
-        log.info("400参数错误", e);
+        log.info("http 400参数错误", e);
         BindingResult bindingResult = e.getBindingResult();
         Optional<ObjectError> error = bindingResult.getAllErrors().stream().findFirst();
         return ResponseResult.FAILED(BizCode.Argument_ERROR, error.map(DefaultMessageSourceResolvable::getDefaultMessage).orElse(null));
     }
 
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    @ExceptionHandler(value = RuntimeException.class)
-    public ResponseResult<String> handler(RuntimeException e) {
-        log.error("500错误", e);
+    @ExceptionHandler(value = Exception.class)
+    public ResponseResult<String> handler(Exception e) {
+        log.error("http 500错误", e);
         return ResponseResult.FAILED(BizCode.INTERNAL_SERVER_ERROR);
     }
 
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     @ExceptionHandler(value = UnauthorizedException.class)
     public ResponseResult<String> handler(UnauthorizedException e) {
-        log.error("401未授权错误", e);
+        log.error("http 401未授权错误", e);
         return ResponseResult.FAILED(BizCode.UNAUTHORIZED);
     }
 

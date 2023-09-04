@@ -1,7 +1,9 @@
 package cn.hdlmx.common.http;
 
 import cn.hdlmx.common.baseEnum.BizCode;
+import lombok.Data;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 /**
@@ -10,6 +12,7 @@ import java.util.List;
  */
 
 
+@Data
 public class ResponseResult<T> {
     /**
      * 前端引用的页面
@@ -26,7 +29,7 @@ public class ResponseResult<T> {
     /**
      * 返回结果时间
      */
-    private long timestamp = System.currentTimeMillis();
+    private LocalDateTime timestamp =LocalDateTime.now();
     /**
      * 业务编码
      */
@@ -57,7 +60,9 @@ public class ResponseResult<T> {
 
     public static <T> ResponseResult<T> FAILED(BizCode bizCode) {
         return new ResponseResult<T>("operation failed", bizCode, null);
-    } public static <T> ResponseResult<T> FAILED(BizCode bizCode,T data) {
+    }
+
+    public static <T> ResponseResult<T> FAILED(BizCode bizCode, T data) {
         return new ResponseResult<T>("operation failed", bizCode, data);
     }
 
