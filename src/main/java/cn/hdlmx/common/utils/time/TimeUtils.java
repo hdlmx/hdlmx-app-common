@@ -1,6 +1,7 @@
 
 package cn.hdlmx.common.utils.time;
 
+import java.text.DateFormat;
 import java.time.*;
 import java.time.format.DateTimeFormatter;
 
@@ -27,6 +28,10 @@ public class TimeUtils {
      * 日期格式
      */
     private final static DateTimeFormatter DATE_FORMATTER = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+    /**
+     * 年月格式
+     */
+    private final static DateTimeFormatter MONTH_YEAR_FORMATTER = DateTimeFormatter.ofPattern("yyyyMM");
     /**
      * 时间格式
      */
@@ -177,6 +182,15 @@ public class TimeUtils {
         ZoneId zone = ZoneId.systemDefault();
         return LocalDateTime.ofInstant(instant, zone);
 
+    }
+
+    /**
+     * 获取日期的年月字符串
+     * @param date
+     * @return
+     */
+    public static String monthYearStr(LocalDate date) {
+        return MONTH_YEAR_FORMATTER.format(date);
     }
 
 }

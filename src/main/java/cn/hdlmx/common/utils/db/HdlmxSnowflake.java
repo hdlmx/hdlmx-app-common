@@ -40,10 +40,4 @@ public class HdlmxSnowflake {
      * @return
      */
 
-
-    public synchronized static long nextId() {
-        long timeStamp = System.currentTimeMillis();
-
-
-    }
 }
